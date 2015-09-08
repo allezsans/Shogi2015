@@ -16,6 +16,7 @@ public class StateObserver : MonoBehaviour {
 	float pastTime;
 	JsonKeyName keyName;
 	bool isChangeState = false;	// ステートが変わったフレームの時true
+	Waiting waiting;
 
 	public float RequestInterval = 1.0f;
 	// Use this for initialization
@@ -30,9 +31,14 @@ public class StateObserver : MonoBehaviour {
 		// stateが変わった時の初期化処理
 		switch(state){
 			case State.waiting:
+				if( isChangeState ){
+					waiting = new Waiting();
+					waiting.Init();
+				}
 				break;
 			case State.playing:
 				if(isChangeState){
+					waiting.Dispose();
 					WWWManager.Instance.Get(WWWManager.GET.PIECES, data => {
 						var p = Resources.Load("Prefab/piece");
 						var piece = GameObject.Instantiate(p) as GameObject;
