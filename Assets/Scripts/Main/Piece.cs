@@ -31,10 +31,10 @@ public class Piece : MonoBehaviour {
 		rectTransform = this.GetComponent<RectTransform> ();
 	}
 
-	public void SetPieceInfo(string _pieceName,int posX,int posY){
+	public void SetPieceInfo(string _pieceName,long posX,long posY){
 		pieceName = _pieceName;
-		pos.x = posX;
-		pos.y = posY;
+		pos.x = (int)posX;
+		pos.y = (int)posY;
 		var type = Resources.Load<PieceInfo>("Setting/Piece/"+_pieceName);
 		BehaviourBeforePromote = type.movableVectorBeforePromote;
 		BehaviourAfterPromote = type.movableVectorAfterPromote;

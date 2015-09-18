@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class StateObserver : MonoBehaviour {
 
@@ -28,26 +29,39 @@ public class StateObserver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		CheckState ();
+	}
+
+	void InitState(State s)
+	{
+		state = s;
 		// stateが変わった時の初期化処理
-		switch(state){
+		switch (s)
+		{
 			case State.waiting:
-				if( isChangeState ){
-					waiting = new Waiting();
-					waiting.Init();
-				}
+				waiting = new Waiting();
+				waiting.Init();
 				break;
 			case State.playing:
-				if(isChangeState){
-					waiting.Dispose();
-					WWWManager.Instance.Get(WWWManager.GET.PIECES, data => {
-						var p = Resources.Load("Prefab/piece");
-						var piece = GameObject.Instantiate(p) as GameObject;
-						piece.GetComponent<Piece>().SetPieceInfo("fu",5,4);
-					});
-				}
+				if( waiting != null ) waiting.Dispose();
+				WWWManager.Instance.Get(WWWManager.GET.PIECES, data =>
+				{
+					// TODO:全体の駒を扱うクラスを作って処理を渡す
+					foreach (var piece in data)
+					{
+						InitPieces(piece.Value);
+					}
+				});
 				break;
 		}
-		isChangeState = false;
+	}
+
+	void InitPieces(object obj)
+	{
+		var pi = (Dictionary<string, object>)obj;
+
+		var p = Resources.Load("Prefab/piece");
+		var piece = GameObject.Instantiate(p) as GameObject;
+		piece.GetComponent<Piece>().SetPieceInfo(pi[keyName.pieceName].ToString(), (long)pi[keyName.posX], (long)pi[keyName.posY]);
 	}
 	
 	void CheckState(){
@@ -66,7 +80,9 @@ public class StateObserver : MonoBehaviour {
 			case "playing": CheckChangeState(State.playing); break;
 			case "finish": CheckChangeState(State.finish); break;
 			case "exit": CheckChangeState(State.exit); break;
-			default: state = State.unknown; break;
+			default:
+				state = State.unknown;
+				break;
 		}
 		if (state == State.unknown) {
 			Debug.LogError("state is unknown...");
@@ -74,7 +90,9 @@ public class StateObserver : MonoBehaviour {
 	}
 
 	void CheckChangeState(State s){
-		if(state != s) isChangeState = true; 
-		state = s;
+		if (state != s)
+		{
+			InitState(s);
+		}
 	}
 }

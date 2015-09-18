@@ -1,27 +1,39 @@
-Initialize engine version: 5.1.2f1 (afd2369b692a)
+Initialize engine version: 5.0.4f1 (1d75c08f1c9c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: AMD Radeon HD 6900 Series (ID=0x6719)
-    Vendor:   ATI
-    VRAM:     2035 MB
+    Renderer: NVIDIA GeForce GTX 760 (192-bit) (ID=0x118e)
+    Vendor:   NVIDIA
+    VRAM:     1475 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.056 seconds
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.037 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\Unity\Project\Shogi2015\exe\Shogi2015_Data\Managed\System.dll (this message is harmless)
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\UnityProject\Shogi2015\exe\Shogi2015_Data\Managed\System.dll (this message is harmless)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.423078 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 176.
+Total: 0.252029 ms (FindLiveObjects: 0.017106 ms CreateObjectMapping: 0.025088 ms MarkObjects: 0.199000 ms  DeleteObjects: 0.009978 ms)
+
+InvalidCastException: Cannot cast from source type to destination type.
+  at StateObserver.InitPieces (System.Object obj) [0x00000] in <filename unknown>:0 
+  at StateObserver.<InitState>m__0 (System.Collections.Generic.Dictionary`2 data) [0x00000] in <filename unknown>:0 
+  at WWWManager+<Get>c__AnonStorey4.<>m__5 (UnityEngine.WWW www) [0x00000] in <filename unknown>:0 
+  at WWWKit.WWWClient+<RequestCoroutine>c__Iterator1.MoveNext () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+

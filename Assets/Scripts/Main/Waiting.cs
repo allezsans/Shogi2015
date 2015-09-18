@@ -15,6 +15,6 @@ public class Waiting{
 
 	public void Dispose(){
 		iTween.Stop ();
-		GameObject.Destroy (WaitingPlate);
+		GameObject.Destroy (WaitingPlate.gameObject);
 	}
 }
